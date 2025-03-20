@@ -36,10 +36,10 @@
     "typescript": "^5.8.2"
   },
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "start": "node dist/chatbot.js",
+    "clean": "rimraf .next",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
     "start:telegram": "node dist/telegram-bot.js",
     "generate:uuids": "ts-node src/utils/uuidGenerator.ts",
     "demo:nilliondb": "ts-node src/scripts/demo-nillion-db.ts",

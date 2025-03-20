@@ -164,7 +164,8 @@ async function runDemo() {
     
     // Create disputed review
     const createDisputedReviewResult = await nillionDB.createReview({
-      bookingId: disputedBookingId,
+      // Previously: bookingId: disputedBookingId, I modified this line because it was throwing an error
+      bookingId: disputedBookingId || uuidv4(),
       serviceId: disputedServiceId,
       clientId: clientId,
       providerId: providerId,
@@ -174,6 +175,8 @@ async function runDemo() {
       disputeReason: 'The client requested a beginner class but was enrolled in an advanced class.'
     });
     logger.log(createDisputedReviewResult);
+
+      
     
     // Ensure reviewId is a string
     const disputedReviewId = createDisputedReviewResult.reviewId || uuidv4();
