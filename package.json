@@ -5,6 +5,7 @@
     "@langchain/core": "^0.3.42",
     "@langchain/langgraph": "^0.2.57",
     "@langchain/openai": "^0.4.5",
+    "@privy-io/react-auth": "^2.6.4",
     "@shadcn/ui": "^0.0.4",
     "@tailwindcss/cli": "^4.0.15",
     "@tailwindcss/postcss": "^4.0.15",

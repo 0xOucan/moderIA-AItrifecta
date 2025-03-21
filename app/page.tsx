@@ -1,32 +1,45 @@
-import Layout from "./layout";
+"use client";
+
+import { usePrivy } from "@privy-io/react-auth";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  return (
-    <Layout>
-      <h1 className="h1">Select Dashboard</h1>
-      <div className="main-window">
-        <Link href="/dashboard/student">
-        <br></br>
-          <button className="dashboard-button">Student Dashboard</button>
-        </Link>
+  const { authenticated, ready } = usePrivy();
+  const router = useRouter();
 
-        <br></br>
-        <br></br>
+  useEffect(() => {
+    if (ready && !authenticated) {
+      router.push("/login");
+    }
+  }, [ready, authenticated, router]);
+
+  if (!ready) {
+    return <div className="flex min-h-screen items-center justify-center">Loading...</div>;
+  }
+
+  return (
+    <div className="main-window">
+      <div className="center-window">
+        <h1>ModerIA</h1>
+        <p>AI-driven mentor-student matching platform</p>
+      </div>
+
+      <div className="center-window">
+        <h2>Who are you?</h2>
+        <Link href="/dashboard/student">
+          <button className="dashboard-button">I'm a Student</button>
+        </Link>
 
         <Link href="/dashboard/mentor">
-          <button className="dashboard-button">Mentor Dashboard</button>
+          <button className="dashboard-button">I'm a Mentor</button>
         </Link>
-        
-        <br></br>
-        <br></br>
 
         <Link href="/dashboard/agent">
-          <button className="dashboard-button">
-            Agent Dashboard (View Only)
-          </button>
+          <button className="dashboard-button">See Agent Metrics</button>
         </Link>
       </div>
-    </Layout>
+    </div>
   );
 }

@@ -1,5 +1,7 @@
 import { ReactNode } from "react";
 import "./globals.css";
+import Providers from "./providers/providers";
+
 
 export const metadata = {
   title: "ModerIA Dashboard",
@@ -10,7 +12,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head />
-      <body className="main-window">{children}</body>
+      <body className="main-window">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
