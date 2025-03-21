@@ -1,10 +1,16 @@
 import { ReactNode } from "react";
+import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata = {
+  title: "ModerIA Dashboard",
+  description: "AI-driven mentor-student matching platform",
+};
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head />
+      <body className="main-window">{children}</body>
     </html>
   );
 }
-

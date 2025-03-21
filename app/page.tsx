@@ -4,16 +4,25 @@ import Link from "next/link";
 export default function Home() {
   return (
     <Layout>
-      <h1 className="text-2xl font-bold text-center mb-4">Select Dashboard</h1>
-      <div className="flex flex-col space-y-4">
+      <h1 className="h1">Select Dashboard</h1>
+      <div className="main-window">
         <Link href="/dashboard/student">
-          <button className="w-full p-3 bg-blue-500 text-white rounded-md">Student Dashboard</button>
+        <br></br>
+          <button className="dashboard-button">Student Dashboard</button>
         </Link>
+
+        <br></br>
+        <br></br>
+
         <Link href="/dashboard/mentor">
-          <button className="w-full p-3 bg-green-500 text-white rounded-md">Mentor Dashboard</button>
+          <button className="dashboard-button">Mentor Dashboard</button>
         </Link>
+        
+        <br></br>
+        <br></br>
+
         <Link href="/dashboard/agent">
-          <button className="w-full p-3 bg-gray-500 text-white rounded-md cursor-not-allowed">
+          <button className="dashboard-button">
             Agent Dashboard (View Only)
           </button>
         </Link>
